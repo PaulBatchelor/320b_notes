@@ -1,0 +1,128 @@
+% ============================
+% Sat Jan  9 14:58:47 PST 2016
+% ============================
+
+% NOTE: video watching not done yet
+
+\subsection*{Simplest Recursive Lowpass Filter}
+
+$y_n = x(n) + Py(n-1)$
+
+Where $0 < P < 1, \\ 
+n = 0, 1, 2, \dots
+y(-1) \stackrel{\Delta}{=} 0
+$\\\\
+Z transform:\\\\
+$Y(z) = X(z) + Pz^{-1}Y(z)$
+
+$=> H(z) \stackrel{\Delta}{=} \frac{Y(Z)}{X(Z)}
+= \frac{1}{1 - Px'}
+$
+\\
+
+\josquote{Ask about filters: what is their maximum gain?}
+
+
+\subsection*{Max Gain}
+
+Max gain is defined as:
+
+$\frac{1}{1 - R_{Max}}$
+
+Rmax = maximum Poles modulai  %max\{|Pi|\}
+
+Maximum gain is the one-pole, whose closest to thunit circle.
+
+
+\subsection*{Time Constant of One Pole}
+
+$e^{-t/\tau}$ =
+$e^{-nt/\tau}$  =
+$[e^{-t/\tau}]^n$ 
+
+$
+P = e^{-t/\tau}
+= 1- \frac{T}{\tau} %approx
+= \frac{1}{1 - P} %approx
+$\\\\
+
+$
+\frac{1}{1 - |P|}
+$ 
+= for any pole $p$ in C is approx equal to time constant in sample.
+which is equal to the peak gain.
+
+
+also,
+$
+\frac{1}{1 - |P|} =
+$ 
+Peak gain.
+
+$
+H(z) = \frac{1}{1 - PZ^{-1}} =
+$ 
+
+$h = [1, p, p^2, p^3, \dots]$\\
+$h(n) = p^n$
+
+\subsection*{Stability}
+
+$h(n) -> 0$
+
+%$P f E: H(z) = \sum
+
+\josquote{A fliter is stable if |Pi| <1 upsidedownAi = 1, \dots, N}
+
+
+
+\subsection*{Pole BW}
+
+Bandwidth (BW) \\
+
+Bandwidth is defined is -3db points to the left and right of 0db point. 
+Distance from left and right points is the bandwidth.
+
+Bandwidth is in Hz. 
+
+-6db is a power of 2, (dividing by 2), -3db is dividing by $\sqrt{2}$
+
+What do we do to estimate it from the pole?
+\\
+Estimate the -3db points. 
+
+$|P| = e^{-\pi B T}$
+where $B$ = bandwidth in Hz.
+
+The derivation assumes that you want a narrow bandpass.
+
+ANother way:
+
+$B = \frac{-ln(|p|)}{\pi T}$
+
+
+\subsection*{S-plane poles and zeros}
+$h(t) = e^{-t/\tau}$
+
+The generalized transform of this is the laplace transform.
+
+\subsection*{Laplace transform}
+Go back to this: (approx 30min. vid4)\\
+Look this up:\\
+H(s) = L h etc... etc...
+
+$\int_0^{\infty} e^{-t/\tau}e^{-st}dt$
+$= \int_0^{\infty} e^{-t/\tau}e^{-st}dt$ \\\\
+
+$e^{pt} \leftrightarrow \frac{1}{s - p}$
+\\
+more commonly written as: \\
+$e^{\alpha t} \leftrightarrow \frac{1}{s - \alpha}$\\
+\josquote{this is how you get poles in the s-plane}
+
+Let $\alpha = \sigma_0 + j\omega_0$
+
+I stopped here (towards the end of video... get back to this)
+
+
+

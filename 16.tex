@@ -1,0 +1,69 @@
+\subsection*{Something or other}
+Class notes: tuesday, Feb 2.
+
+Misc. class points that I was able to take down
+
+\begin{itemize}
+
+\item{Ringing: if you "pulse" it, does it ring? This means that you'll hear a sinusoidal frequency.}
+\paulhint{TODO: look up butterworth wiki page. we are looking at it right now}
+
+\item{The number of poles is always equal to the number of zeros at infinity. }
+
+\item{Repeated poles and repeated zeros are difficult to deal with numerically. It is "numerically ill-conditioned"}
+
+\item{There's a good chart of various orders of butterworth filters on the wiki with maximally flat. 
+These are Bode plots.}
+
+\item{Bode plots are very audio-friendly. "log-log".}
+
+\item{When the "Pole breaks"? Along the j omega axis, you pass the imaginary coordinate part of the pole.}
+
+\end{itemize}
+
+\subsection*{Bode Plots}
+Our transfer function:
+
+\begin{align*}
+H(s) = \frac{1}{s - \sigma_p}
+\end{align*}
+
+Sigma is the real part, omega is the imaginary part. 
+
+Set sigma to zero to get j omega axis:
+
+\begin{align*}
+H(j \omega ) = \frac{1}{j \omega - \sigma_p}
+\end{align*}
+
+% \begin{align*}
+% G(\omega) = H(j \omega ) = \frac{1}{j \omega - \sigma_p}
+% \end{align*}
+
+
+\paulhint{See picture taken at 15:28}\\
+
+We do a graphical derivation:\\
+\paulhint{See picture taken at 15:30}\\
+
+
+More generally\\
+\paulhint{See picture taken at 15:33}\\
+
+\paulhint{See better picture taken at 15:36}\\
+
+\paulhint{I'm still not getting the visual perception of poles/zeros. TODO: look this up}\\
+
+\paulhint{TODO: look up Q and memorize the eqn. Remember that you know this from a 
+musical/applications perspective.}\\
+
+\begin{itemize}
+\item{Butterworth filter is notoriously non-ringing.}
+\item{A one pole filter cannot ring.}
+\end{itemize}
+
+Elliptic vs Butterworth
+
+\paulhint{See picture taken at 16:17. Try to figure out what it means as you don't know it yet}
+
+

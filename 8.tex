@@ -1,0 +1,84 @@
+\subsection*{Simplest Electrical LPF}
+
+video: vid6.mp4
+
+Practical lowpass electrical filter is an RC filter
+
+\paulhint{First electrical diagram made}
+
+\paulhint{See 6a.png}
+
+Resistor: made out of carbon composite. $V=RI$ Material such that when you 
+put a current across it, the current is proportional to the voltage.
+
+\paulhint{This is the second diagram in the page}
+
+\paulhint{See 6b.png}
+
+Capacitors: charged with voltage. Capacitance %spelling?
+how much charge can be held in the plates. $Q = cv$
+
+Current is the dirivative of charge.
+
+
+\paulhint{This is the third diagram in the page}
+
+
+Inductor: what is this?
+\paulhint{This is the fourth diagram in the page}
+
+RLC circuits
+\paulhint{See 6c.png for capacitor and inductor}
+Approx: 5:36
+Analysis of these filters. (Done more formal than necessary).
+
+\paulhint{This is more diagrams. Worth a rewatch maybe?}
+
+Kirchhoff Loop and Node equations: sum of voltages around a loop is zero.
+
+Loops: 
+
+input loope:
+
+$-v_i + v_r + v_c = 0$ \\
+$v_i = v_r + v_c$ \\
+
+output loop:
+$-v_c + v_0 = 0$ \\
+
+Node: \\
+$i_R - i_c + i_0 = 0$\\
+$i_c = i_0 + R_c$
+
+Assume output current ($i_0$) is zero.
+
+\paulhint{I'm missing a lot here. Google Kirchhoff}
+
+$V_i = V_r + V_c = V_R + V_0$ \\
+
+$V_0 = V_i - V_R$ \\
+
+Putting it in the laplace domain:\\
+
+$V_0 = V_i - V_R = V_i - IR$ \\
+$= V_i - (V_0 c s) * R$
+
+\paulhint{$V_0 c s = I$}
+
+$V_0[I + R c s] = V$
+
+$H(s) = V_0(s) / V_i(s) = 1 / 1 + RCs$
+
+$ = \frac{1/rc}{s + 1/rc} = \frac{1/\tau}{ s + 1/\tau}$
+
+\josquote{Keep swapping in component definitions until you are ready to find the final solution.}
+
+
+\paulhint{$\tau \stackrel{\Delta}{=} RC$}
+
+$H(s) 
+= \frac{1}{1 + R C S} 
+\leftrightarrow 
+h(t) = \frac{1}{\tau}e^{-t / \tau}$
+
+\josquote{Be comfortable in both the Z plane and the S plane.}

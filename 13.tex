@@ -1,0 +1,40 @@
+Notes for vid9.mp4
+
+\subsection*{Bode plot of simplest electrical LPF}
+
+The bode plot applies to the amplitude response (magnitude frequency response).
+
+In the s-plane:
+$G(\omega) \stackrel{\Delta}{=} \vert H(j \omega)\vert
+=\vert \frac{1/\tau}{j\omega + 1/\tau} \vert =
+\vert \frac{\sigma}{j \omega + \sigma} \vert 
+$
+
+We will plot the magnitude response over a log frequency scale in DB.
+
+When $\omega = 0$, the gain is 1.
+
+0 db for low frequencies, until $\omega$ becomes comparable to $\frac{1}{\tau}$
+
+When we reach $\sigma$, what is our gain? $1/\sqrt{2}$, which is -3db. 
+
+For $\omega > \sigma$, it is 6db/octave rolloff. Our bode plot looks like a 
+half decent lowpass filter! It's got a nice pass band, and a well dfined -3db 
+point. This is cascadable, so they can be stacked to get a steeper rolloff.
+
+\paulhint{frame 13a taken at 3:26}
+
+\subsection*{Pole zero diagram}
+Recall the pole-zero plot:
+
+What is the bandwidth of that pole? 
+
+Bandwidth is interval between -3db points. We just derived that $\sigma = -3d$,
+so we can just rotate to the $j\omega$ axis, which is why the s-plane
+more enjoyable than the z-plane. 
+
+You can say that in the z-plane your 
+frequency axis is the unit circle, and if you straighten it out you'll
+get the s-plane. The $j\omega$ axis is a great circle in the extended
+complex plane; if you put everything on a sphere, then the $j\omega$ axis
+is a circle. 

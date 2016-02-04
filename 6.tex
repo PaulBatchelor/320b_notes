@@ -1,0 +1,78 @@
+\textbf{Class notes: Jan 12, 2016}
+
+Notes for Paul:
+
+- Make a "notes for paul" latex macro
+
+- Learn more about the S-Plane and Z-plane (we will be doing both in this class 
+simultaneously)
+
+- Faust filters: many of them are just an impulse sent through a 2nd order filter
+
+- df-1 and df-2 differ by whether or not the zeroes come first or second
+
+\josquote{There is a rate of evaporation of hardware in this vacinity}
+
+\subsection*{Direct Form Filters}
+
+\josquote{Truth is Truth.}
+
+% https://ccrma.stanford.edu/~jos/fp/Direct_Form_I.html
+
+Difference equation: Discrete form of differential equation
+
+- takes a linear combination of the current input, and the past inputs
+
+- can't see the future: causal
+
+- Show up in the numerator of the transfer function
+
+- if it's an FIR, b cf are the impulse response
+
+- vector 'b', sequence of b's, followed by zeros
+
+- TODO: try to see this in terms of convolution (connect it, "last quarters way of thinking about this")
+
+- "running linear combination
+
+- 2 points = two point smoother, running 2 point sum filter
+
+- b-part is only the FIR part, no feedback
+
+- feedback is new this quarter: coudln't do it last semester because the IR is infinite
+
+\textit{(there should definitely be a sidenote thingy for meanderings...
+How does one "chart" this lecture?
+)} 
+
+- some ways to  model reverbation: ray tracing boundary modelling
+
+\josquote{The gaming industry drives this stuff.}
+
+- impulse response is only accurate for a fixed point fixed source fixed geometry
+
+- reverb is trying to come from everywhere at once
+
+- diffuse field
+
+- image method reverberation: take your room, replicate it. 
+
+- the walls are suddenly made out of mirrors, and you clap: imagine where you'll see those pair of hands. you'll see the hands in 
+6 places at first, but you'll realize there are an infinite amount of hands. 
+
+- dual of image method: trakcing a spherical wave that gvoes out when you clap your hands. let it go through
+the walls. Find the sound field by adding all the rooms that the soudn wave is in.
+
+-infinite honey comb of image rooms, spherical wave that expands out. take all teh rooms intersecting the sphere 
+at that time, and add them together. You'll get a lot of near plane waves, one from every direction. Timing is random
+phase is random.
+
+- late in the reverb: diffuse. 
+
+\josquote{You don't localize reverb, you swim in it.} 
+
+- The "diffuse snow field"
+
+\textit{Now were talking about snow clearing infrastructure in Helsinki}
+
+- Impulse response in an ice hotel \\
