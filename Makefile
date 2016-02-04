@@ -12,5 +12,5 @@ notes.pdf: $(NOTES)
 run: notes.pdf
 
 clean:
-	rm *.pdf *.log *.aux
+	rm -rf *.pdf *.log *.aux
 	
