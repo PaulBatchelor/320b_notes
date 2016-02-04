@@ -1,7 +1,7 @@
 .PHONY: run default
 
 # THIRTEEN IS MISSING
-NOTES = notes.tex test.tex 2.tex 3.tex 4.tex 5.tex 6.tex 7.tex 8.tex 9.tex\
+NOTES = notes.tex 1.tex 2.tex 3.tex 4.tex 5.tex 6.tex 7.tex 8.tex 9.tex\
 		10.tex 11.tex 12.tex 14.tex 15.tex 16.tex
 
 default: notes.pdf
