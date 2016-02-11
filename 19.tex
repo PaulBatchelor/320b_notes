@@ -1,0 +1,50 @@
+\begin{itemize}
+\item{Class notes: Tue, Feb 9}
+\item{\subsection*{Spectral Centroid}}
+
+Basic idea: spectrum (magnitude or magnitude squared), and you're looking for
+the balance point of the spectrum.
+
+\paulhint{chart at 15:06}
+
+
+With the equation:
+
+\paulhint{eqn at 15:06}
+
+\subsection*{Power Spectral Centroid}
+\paulhint{eqn at 15:06}
+
+this eqn has normalization
+
+
+with L2 norm:
+
+\paulhint{eqn at 15:08}
+
+\item{This allows us to use differentian.}
+
+\item{Normalization in frequency domain is normaliztion in time domain (paricbles thereom?)}
+
+\paulhint{eqn at 15:09}
+
+\item{What is the application for this? Great automatic definition of brightness in a track.}
+
+\item{How to recover the spectral envelope? You use the cepstrum. }
+
+\item{CEPStrum and SPECtrum are related (flip words).}
+
+
+\item{Pitch adaptive MFCCs are rare/nonexistant. usually a fixed pitch}
+\item{16kHz (sometimes 12kHz): standard speech recgonition SR. 8khz: phone SR}
+\item{With MFCCs you get the whole envelope, and all the formants, up to 6 resonances with 16kHz}
+\item{8kHz: 3, 4 resonances for speech}
+\item{We only need as many resonances for intelligibility, in reality they go to infinity}
+\item{How do you do this in the time domain?}
+\item{What's the differences between windowed cepstrum vs spectral peaks with interpolation?
+These are two methods. Cepstrum gets some pyschoacoustic weighting.}
+\item{Another contender: LPC - linear predictive coding: a particular kind of spectral envelope that fits an
+all pole filter to the spectrum. It is a peak-biased spectral envelope. Even more pyschoacoustic thrust.}
+\item{LPC is an all-pole model. (what is an all-pole filter?)}
+\item{All these will be covered in 421!}
+\end{itemize}
