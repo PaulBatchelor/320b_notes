@@ -1,0 +1,71 @@
+\begin{itemize}
+\item{Class notes: 2-11-16}
+\subsection*{Matlab demo}
+
+\item{
+zp2tf: zero pole to transfer function, gives us our A and B coefficients.
+}
+
+\item{
+Frequency vector returned by freqs is useful for plots. 
+}
+
+\item{
+Phase plot: how to convert phase to time delay? Find the slope of the phase (phase delay):
+\begin{align*}
+-\frac{\theta(\omega)}{\omega}
+\end{align*} 
+}
+
+\item{
+Plotting group delay: plot(w(1:end-1), -diff(unwrap(angle(H)))/w)
+}
+
+\item{
+We have 1400 samples of delay at the corner frequency
+}
+
+\item{
+There should be a filter designed to be similar to the butterworth filter, so you can
+call it "I can't believe it's not butter".
+}
+
+\item{
+Convert to radians: freq * 2 * pi
+}
+
+\subsection*{Julius}
+\item{
+FDA tool: Filter Desgin and analysis
+}
+
+\item{
+Tool only available in MATLAB, not Octave
+}
+
+\item{
+Able to generate Matlab code.
+}
+
+\item{
+Maximally flat: for group delay it's called a Bessel Filter. For butterworth it's something else... (phase?)
+}
+
+\subsection*{Part 2: more FDA}
+\item{
+Alternation Thereom
+}
+
+\item{
+Pi rotate a filter: $-1^{n}$: Negate every other coefficient.
+}
+
+\item{
+Hipass IR: sample sync function with every other sample negated
+}
+
+\item{
+
+}
+
+\end{itemize}
