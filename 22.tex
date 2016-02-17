@@ -1,0 +1,97 @@
+Class notes: 2-16-16
+
+\begin{itemize}
+\item{One pole at DC: what can you do with one pole?}
+\item{With multiples at DC, you can do anything}
+\item{What is the transfer function? $H(s) = \frac{1}{s}$}
+\item{IR in the time domain? $h(t)e^{-st}dt$}
+\item{Integration theorem}
+\item{What do you get when you integrate an impulse?}
+\item{Unit step impulse response}
+\item{Model: realization}
+\item{What, when you kick it, just steps (a unit step response)? A switch... no not a LTI environment}
+\item{Capacitor: Q = cv... the charge of the capacitor is current times voltage}
+\item{If your impulse response is a step, then your IR is an integrator}
+
+
+\item{cap: $q(t) = C \cdot V(t)$}
+\item{intergral of the currente divied by the capacitor}
+
+
+\item{Mechanical case with springs and masses:
+    \subitem{mass: $f(t) = ma(t) = m \stackrel{\cdot}{v}(t) = $ oops } 
+}
+
+\item{Spring: $f = kx$
+    Equal to k times integral of velocity.
+}
+
+\item{
+    Inductor = v = L (di/dt)
+}
+
+\item{
+How about two poles? $H(s) = \frac{1}{s^2}$
+}
+
+\item{
+Two integrators in series for IR(?)
+}
+
+\item{
+The integral of the step $u(t)$, which is $t$, more specifically $t \cdot u(t)$. 
+}
+
+\item{
+3 poles at dc: $H(s) = \frac{1}{s^3}$
+}
+
+\item{
+Integral at dT, which is $1/2 * t^2$
+}
+
+\item{
+4 poles at dc: $H(s) = \frac{1}{s^4}$
+}
+
+\item{
+Integral at dT, which is $1/3! * t^3$
+}
+
+\item{
+N: $H_n(s) = \frac{1}{s^N} \leftrightarrow h_n(t) = \frac{1}{(N - 1)!}t^{N - 1}$
+}
+
+\item{
+Polynomial approximation is known for blowing up ....
+}
+
+\item{
+When you combine integraters, you are getting a linear combination of series integrators in parrallel. 
+}
+
+\item{
+Taking it farther: feedback of integrators.
+}
+
+\item{
+Can we analyze it? Lets set up it up a bit more systematically and label the output of the integrators.
+}
+
+\item{
+outer most x1, then x2, then x3, etc...
+}
+
+\item{
+x2 of t is equal to x1 of t dot.
+}
+
+\item{
+look up: state space with arbitrary numerator/denominator. Every transfer function can be realized this way. 
+}
+
+
+\item{
+State space/state variable filter
+}
+\end{itemize}
