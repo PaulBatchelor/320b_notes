@@ -1,0 +1,160 @@
+Video notes: vid15.mp4
+\subsection*{Allpass filters (review)}
+
+\begin{itemize}
+\item{
+z-plane: $\vert H(e^{-j\omega T}) \vert = 1$ and
+s-plane: $\vert H(j\omega) \vert = 1$ 
+}
+\item{
+z-plane: $\frac{z^{-N}A(z^{-1})}{A(z)}$
+}
+\item{
+s-plane: $\frac{A(-s)}{A(s)}$
+\paulhint{It would be a good idea to have doodles of what the poles
+look like}
+}
+\end{itemize}
+
+\subsection*{Min Phase Allpass Decomposition }
+\begin{itemize}
+\item{MP assumes stable poles}
+\item{Zero outside the unit circle is not MP}
+\item{In MP+allpass decomp: take that zero, reflect it inside}
+\item{
+We're taking the original filter which has a non-mp zero, and 
+expressing it as a mp filter where the pole and zero are inside 
+the unit circle, times an allpass filter with the non-MP zero and
+a pole at the inverse. 
+}
+\item{
+We can write the decomposition as
+$
+\frac{1 - q_e z^{-1}}{1 - p_i z^{-1}} =
+\frac{1 - q_i z^{-1}}{1 - p_i z^{-1}} \cdot
+\frac{1 - q_ez^{-1}}{1 - q_i z^{-1}}
+$, Where $q_i = \frac{1}{q_e}$
+}
+\item{
+MP in s-plane is poles and zeros in the LHP
+}
+\item{
+What would the bilinear transform do to this? Only have to remember
+one case, and remember that case under the BLT. "I freely use the BLT
+for z-s and s-z"
+}
+\item{
+There are a lot of times when you need to know about MP filters, espeically
+for filter design. If you can convert the desired frequency response
+to a MP filter, you are going to get much nicer results in your 
+filter design.
+}
+\item{
+If the filter design is sensitive at all, you can really make it fall
+flat on it's face if you try to make it do a non-MP filter design.
+}
+\end{itemize}
+\subsection*{Geometric Series Revisitied}
+\begin{itemize}
+\item{Recall: 
+$\frac{1}{1-R} = 1 + R + R^2 + \cdots \infty $ when $\vert R \vert < 1$
+}
+\item{
+You can take this farther: suppose $\vert R \vert > 1$, then rewrite as:\\
+$\frac{1}{1 - R} = \frac{-R^{-1}}{1 - R^{-1}} =
+-R^{-1} [1 + R^{-1} + R^{-2} + \cdots ] < \infty
+$, When $\vert R \vert > 1$
+}
+\end{itemize}
+\subsection*{Apply to one-pole filter}
+\begin{itemize}
+\item{
+$H(z) =  \frac{1}{1 - pz^{-1}} = 1 + pz^{-1} + p^2z^{-2} + \cdots$
+}
+\item{
+This is just a z transform of the impulse response of a one-pole filter. A
+causal, stable, filter, where $\vert p \vert < 1$
+}
+\item{
+Requires that $\vert pz^{-1} \vert < 1$, Which implies
+$\vert p \vert < 1$
+}
+\item{
+    \josquote{You know you're really done when you read through your 
+    latest draft, and you don't want to touch it. If you can 
+    get to a fixed point in your own brain, then you are ready to publish.
+    That's what you submit. Don't submit it until you get to your internal 
+    fixed point. People don't have time to look at things that 
+    aren't perfect anymore. That's the dividend of the internet. The internet
+    makes it possible for one person to do it right and nobody else
+    has to do it. 
+    }
+}
+\item{
+Go back to the time domain: we normally think of this as the inverse
+z-transform. We recognize this as the z-transform of a causal 
+exponentionally decaying sequence. 
+}
+\item{
+If you wanted to do a true inverse transform: make it an inverse DTFT 
+(IDTFT) to get $h = [1, p, p^2, \cdot]$ or $h(n) = u(n) p^{n}$, 
+where $u$ is a unit-step function.
+}
+\item{
+We are implicitly assuming that the Z-transform has a region 
+of convergence that includes the $j\omega$ axis or the $e^{j\omega T}$ axis.
+It must be in the region of convergence of the Z-transform.
+}
+\item{
+By assuming that, it means that poles inside the unit circle
+correspond to causal decaying exponentials.
+}
+\item{
+By that same assumption, poles outside the unit cirlce correspond
+to anti-causal exponentials that decay to left, that decay to $-\infty$.
+}
+\item{
+This is a new concept: what we were doing before is inisiting that 
+all poles be inside the unit cirlce OR if we had poles outside the unit
+circles, the region of convergence would be greater than that. 
+}
+\item{
+Now, we're letting the pole cross that circle, and now the exponential
+flips around and points the other way now.
+}
+\end{itemize}
+\subsection* {Rewritten case , $\vert p \vert > 1$ 
+($pz^{-1} > 1$)}
+\begin{itemize}
+\item{$\frac{1}{1 - pz^{-1}}=
+\frac{-p^{-1}z}{1 - p^{-1}z}
+= -p^{-1}z [ 1 + p^{-1}z + p^{-2}z^2 + \cdots]  \\
+= -[p^{-1}z + p^{-2}z^2 + p^{-3}z^3 + \cdots]
+$
+}
+\item{
+IDFT $= -u(-n - 1)p^{n}$
+}
+\item{
+\textbf{Example}: $H(z) = 
+\frac{1}{1 - \frac{1}{2}z^{-1}} +
+\frac{1}{1 - 2z^{-1}}
+$
+}
+\item{
+First term: stable pole at $z = \frac{1}{2}$,
+Second term: unstable pole at $z = 2$,
+}
+\item{
+$H(z) = \frac{1}{1 - \frac{1}{2} z^{-1}}
++ (
+\frac{-\frac{1}{2} z^{-1}}{
+1 - \frac{1}{2}z^{-1}
+}
+)$
+}
+\item{
+\paulhint{There's about 5 more minutes of this video, worth watch the last 10 minutes}
+}
+\end{itemize}
+
