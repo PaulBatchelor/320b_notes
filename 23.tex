@@ -12,6 +12,7 @@ Trivial Example: one pole one zero lowpass filter (z-plane)
 \item{
     Adding a zero outside that circle makes it not minum phase
     \paulhint{See diagram taken at 1:56, 23a}
+    \includegraphics[scale=0.4]{frames/23a}
 }
 \item{
     To make it MP it needs to be inside the unit circle, (they can't even
@@ -21,6 +22,7 @@ touch the unit circle)
 
 \item{
 Example:  $h(n) = [a, b, 0\cdots]$, $H(z) = a + bz^{-1}$
+    \includegraphics[scale=0.4]{frames/23b}
 \paulhint{See diagram taken at 2:46, 23b}
 
 }
@@ -60,6 +62,7 @@ $B(z) = z^{-n}A(z^{-1})$
 \item{ 
 To elaborate:
 \paulhint{See diagram taken at 7:52, 23c}
+    \includegraphics[scale=0.4]{frames/23c}
 }
 \item{
 You are flipping the coefficients without moving the powers of $Z$.
@@ -85,6 +88,7 @@ $\frac{
 \vert e^{j\Theta_d}\cdot r_d \vert
 } = 1$
 \paulhint{See diagram taken at 11:25, 23d}
+    \includegraphics[scale=0.4]{frames/23d}
 }
 \item{
 $A(z^{-1})$ has roots at $\frac{1}{p_i}$ where $A(p_i) = 0$
@@ -100,6 +104,7 @@ to the other side. Since poles are in complex conjugate
 pairs, you don't really need to think about the "flip"
 }
 \paulhint{See diagram taken at 14:13, 23e}
+    \includegraphics[scale=0.4]{frames/23e}
 \item{
 \textbf{s-plane allpass}:
 The distances from the $j\omega$ axis are the same, but flipped,
@@ -109,6 +114,7 @@ it is a left-right flip. How do I express this (inverse doesn't work)?You make $
 This flip is a bit of a trick: it is a double flip, it's a left/right AND a up/down flip. Since we assume real coefficients, there is
 up/down symmetry. 
 \paulhint{See diagram taken at 16:01, 23f}
+    \includegraphics[scale=0.4]{frames/23f}
 }
 \item{
 to make $H(s) = \frac{}{s^2 + \frac{1}{Q}s + 1}$, an all pass, we make s
@@ -127,6 +133,7 @@ How easy is that?
 \subsection*{Bonus: Phasers constructed from Biquad allpass filters}
 
 \paulhint{See diagram taken at 25:23, 23g}
+    \includegraphics[scale=0.4]{frames/23g}
 
 \subsection*{Allpass and Minimum phase}
 \begin{itemize}
@@ -136,6 +143,7 @@ filter}
 is decompose that and reflect the zeros, and the all pass you introduce
 cancels the zero:
 \paulhint{See diagram taken at 27:02, 23h}
+    \includegraphics[scale=0.4]{frames/23h}
 }
 \item{
 Minimum phase assumes filter stability.
