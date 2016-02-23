@@ -1,0 +1,113 @@
+Class notes: 2-23-16
+
+\subsection*{Symmetric Linear phase Filters, and other questions}
+
+\begin{itemize}
+    \item{A question related to problem 1 of the hw. on page 225}
+    \item{
+        \textbf{What is the $\pi$ for?} I think it has to contribute to 
+wrapping? Don't take my word for it I missed it.
+    }
+    \item{
+        Question about allpass filters: \textbf{Reciprocal conjugate in 
+        previous homeworks, in the book we raise
+        epsilon to the negative one.  What happened to the conjugate?} When you 
+        take the reciprocal, you get the conjugate.  this is okay if they are real, 
+        because they just swap places. Yes, it's a special case, but it's a special 
+        case that we always do.
+    }
+    \item{
+        \textbf{Constant modulus algorithm:} rejects the noise in such away to push the modulus to 1. 
+        it's a form a noise removal. Used in phase vocoders sometimes. 
+    }
+    \item{ 
+        \textbf{How do you go about making a separation table? 
+        Is it the same thing as a tuning table?} 
+        This comes up talking about a the moogvcf. This comes up in the paper by Tim Stilson.
+        Apparently, they are two different things? Read up on this. 
+        This comes down to frequency warping in the BLT. We normally reduce these things 
+        (related to trig) in a table.
+    }
+    \item{ The extra delay we add in the transfer function messes up the orthagonality. The
+     separation table is a way of fixing this. }
+    \item{ If you're using the BLT: you will get some instabilities aroudn some of the frequencies.  }
+    \item{ The moogvcf is an example of cases where the BLT isn't necessarily the best approach. 
+        Other approache could be backward euler with oversampling. 
+    }
+    \item{
+        What's really critical in a feedback system is the \textit{phase margin}.
+    }
+    \item{
+        You want to look at the overall stability with or without the delay. 
+    }
+\end{itemize}
+
+\subsection*{Moogvcf in FAUST: Overview, and more questions}
+\begin{itemize}
+\item{
+moogvcf is defined is it's natural topology
+}
+\item{ 
+sent into 4 one pole filters
+}
+\item{
+uses BLT
+}
+\item{
+after the string of polls, we have our feedback
+}
+\item{
+Corner freq, in Hz
+}
+\item{
+The s family of functions use the BLT internally, which leads 
+to stability problems. This is fine for lower frequencies. 
+}
+\item{
+New improved moogvcf: first one julius learned about. Exactly the same way (follows natural topology)
+except for way poles are digitized: Implemneted as a unity gain smoother. 
+}
+\item{
+K can go all the way up to 3.8, where 4 is the stability limit. The mapping between K and Q is 
+very significantly changed.
+}
+\item{
+When you see the FFT, you can see the the Q melts down after each one. Correction table
+fixes this. 
+}
+\item{
+With memory these days, you can practically implement algorithms that require infinite memory. 
+}
+\item{
+Think about massive parrallelism and enormous amounts of memory 
+(although they don't go together well). 
+}
+\item{
+In the old days: there were array processors: you'd ship your arrays to the array processors, 
+and they'd calculate blazingly fast. Even though the computation points are fast, the IO is slow.
+We just need NVdia to care about audio! 
+}
+\item{
+With Q table, you fix the Q to have the same height and width... do you need a separate
+gain table to set the peak gain? 
+}
+\item{
+Speech modelling is always done with allpole filters. 
+}
+\item{
+For constant Q: you will have set declines: no matter how you correct the Q it will stay there.
+This might be on the final...
+}
+\item{
+New Section Preview: Cepstrum, digitizing vocal tract
+}
+\item{
+
+}
+\item{
+
+}
+\item{}
+\item{}
+\item{}
+\end{itemize}
