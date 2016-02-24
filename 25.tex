@@ -99,15 +99,175 @@ For constant Q: you will have set declines: no matter how you correct the Q it w
 This might be on the final...
 }
 \item{
-New Section Preview: Cepstrum, digitizing vocal tract
+New Section Preview: Cepstrum, digitizing vocal tract, etc...
+}
+\end{itemize}
+
+\subsection*{State Variable Filters}
+
+\begin{itemize}
+\item{
+Normalized biquad (s has tilde and is normalized): 
+\begin{align*}
+H(s) = \frac{1}{s^2 + \frac{1}{Q}s + 1}
+\end{align*}
+}
+where $s (tilde) = \frac{s}{\omega c}$ and $j\omega (tilde) = j \frac{\omega}{\omega c}$
+
+\item{
+Where are the poles? $\pm j$ on the omega axis. 
+}
+
+\item{
+As Q comes down, we are going to get other cases
+\paulhint{see picture taken at 16:09}
 }
 \item{
+Poles: roots of $s ~ + ds ~ + 1, d \stackrel{\Delta}{=} 1/Q$ 
+\paulhint{see picture taken at 16:11}
+}
+\item{
+I want $d <= 2$ corresponds to $Q >= 1/2$
+}
+\item{
+Now we can draw the poles in the s-plane, and get that poles are 
+$-d/2$ and ....
+\paulhint{see picture taken at 16:12}
+}
+\item{
+What is the Q for a butterworth? Where would things need to be for a butterworth?
+}
+\item{
+We have a unit cirlce in the s-plane, poles in the LHP. 
+}
+\item{
+When d goes to zero, you get infinite Q and the poles reach the cirlce. 
+}
+\item{
+What's the Butterworth case? You need to look at the whole circle and
+uniformly space them around the whole circle. $H(s)H(-s)$ give you
+the uniform distribution around the circle. 
+}
+\item{
+$H(j\omega)H(-j\omega)$ is hermetian symmetric... we are assuming that it's
+a real filter. if it were a complex filter, it wouldn't be true. 
+}
+\item{
+$\vert H(j\omega) \vert^2 = G^2(j]omega)$
+}
+\item{
+Select the LHP via \textit{spectral factorization}: it's a buzzword! google it.
+}
+\item{
+Poles are easy enough to specify in closed form: just cut up the circle in even pieces. 
+Not the case for elliptic function poles. 
+}
+\item{
+So we've found the poles, and they are on the unit cirlce. Now
+\begin{align*}
+H(s) = \frac{1}{s ~ + 1/Qs ~ + q}
+\end{align*}
+What is our corner freq? 
+\begin{align*}
+H(j\omega_c) = \frac{1}{j^2 ~ + 1/Qj ~ + j}
+\end{align*}
+
+Therefore
+\begin{align*}
+G(\omega_c) = \vert H(j\omega_c) \vert = Q
+\end{align*}
 
 }
 \item{
-
+The gain is determined by the bandwidth in an allpole filter. 
 }
-\item{}
-\item{}
-\item{}
+\item{
+It's a very elegant formula, we know how to make the cutoff anywhere we want. 
+Life is good.
+}
+\item{
+What would it take to turn this into a highpass filter?
+}
+\end{itemize}
+\subsection*{High Pass Variation}
+\begin{itemize}
+\item{
+Place two zeros at DC (one zero (s) would be a bandpass:
+\begin{align*}
+H(s) = \frac{s^2}{s ~ + 1/Qs ~ + q}
+\end{align*}
+}
+\item{
+In the time domain, swapping between the LP,BP,HP is just differentiating. 
+}
+\end{itemize}
+
+\subsection*{State Variable Realization}
+
+\begin{itemize}
+\item{
+\paulhint{see diagram taken at }
+}
+\item{
+It's good to have ones on the "superdiagonal" 
+}
+\item{
+Our input signal is $u(t)$ (not the step function, unavoidable collision of symbols)
+}
+\item{
+We want to realize this thing, so let's start with the general situation. 
+}
+\item{
+    \textit{State feedback:} it's a magic term. Realized in some state-based form, 
+    it can be used to move the poles of the signal anywhere you want. 
+}
+\item{
+}
+\item{
+    x2 feeds back through -a2
+}
+\item{
+    How to write a transfer function of a state spafce model in terms of it's matrices?
+
+    \begin{align*}
+        H(s) &= C(sI - A)^{-1}B
+    \end{align*}
+
+    This works out for matrices for any size. This *is* the transfer function. 
+    \paulhint{Working stuff out: picture at 16:34}
+}
+\item{
+    \paulhint{See picture taken at 16:44}
+}
+\item{
+    How do we digitize this? 
+}
+\item{
+    All of the filters are happening here, but where we "tap" determines
+which filter we hear. 
+}
+\item{
+    We are just adding zeros. 
+}
+\item{
+    A differentiator pushed through the system "cancels"... \paulhint{little vague here sorry}
+}
+\paulhint{
+\item
+{
+"Let's do a hail mary on how to digitize" ...wut? 
+}
+}
+\item{
+    BE: $s = \frac{1 - z^{-1}}{T} $
+    BE: $s = \frac{1 - z^{-1}}{T} $
+    etc etc \paulhint{see picture taken at 16:51}
+}
+\item{
+    Use forward Euler with backward Euler for this. It works really well!
+    Alternatve Forward/Backward Euler.
+}
+\item{
+    Chamberlain Form
+}
 \end{itemize}
