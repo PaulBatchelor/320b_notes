@@ -1,0 +1,93 @@
+Class notes: 2-25-16
+
+\subsection*{State Space Filters}
+
+\begin{itemize}
+\item{
+Digitized transfer fucntion from page 356.
+\begin{align*}
+H(z) = \frac{1 + 2z^{-1} + 3z^{-2}}{
+1 + \frac{1}{2}z^{-1} + \frac{1}{3}z^{-1}}
+\end{align*}
+}
+\item{
+The notation:
+\begin{align*}
+a(n + 1) = Ax + Bu\\
+y(n) = Cx + du
+\end{align*}
+}
+\item{
+matlab functions that do a lot of stuff for us
+}
+\end{itemize}
+\subsection*{Matlab: State Space Filters}
+\begin{itemize}
+\item{They give you state face filters. It's a good place to learn.}
+\item{\textbf{tf2ss}: transfer function to state space}
+\item{Returns arguments $[A, B, C, D]$}
+\item{What type of realization state space $A$ is? Controlled cannoical form, you can see all the coefficients in this row.}
+\item{Can turn this into a system using the function \textbf{ss}}
+\item{sys = ss(A, B, C, D, Td), where Td is the sampling rate(?) because we want to specify 
+that it is discrete}
+\item{function \textbf{canon} will create a canonical state space 
+realization of a particular type.}
+\item{We are going to try 'modal' for type}
+\item{\textit{Diagonalized state-space form}}
+\item{The other state space: \textit{observable}, but it's called 'companion' in the matlab function canon.}
+\item{What happens when we look at them individually?}
+\item{In the observable, all the coeffecients from our transfer function are in the rightmost column.}
+\item{Diagonal form: what you get for A are just eigenvalues for the A matrix}
+\item{A collection of eigen vectors multiplied by A gives you that other product (?)}
+\item{Linear algebra tools: Jordan form, determinant, etc...}
+\item{Diagonalizing a statespace system is very useful, we see lots of things}
+\item{The matrix that diagonalizes a system is an eigenvector (?)}
+\item{See section \textit{Diagonalizing State Space Modes}}
+\end{itemize}
+\subsection*{Repeated poles}
+\begin{itemize}
+\item{You can't do a parrallel sum, when two residues correspond to one pole: need to do 
+them in series.}
+\end{itemize}
+\subsection*{State variable filter LP/BP/HP}
+\begin{itemize}
+\item{
+\begin{align*}
+\sim
+\end{align*}
+}
+
+\begin{tabular}{c | c}
+Mode M & Type \\
+\hline
+0 & lowpass \\
+1 & bandpass \\
+2 & highpass \\
+\end{tabular}
+
+\begin{align*}
+\end{align*}
+
+\item{ 
+\begin{align*}
+H(s) &= \frac{(s / \omega_c)^M}{(s/ \omega_c)^2 + \frac{s/\omega_c}{Q} + 1}  \\
+\end{align*}
+}
+
+\end{itemize}
+\subsection*{Digitization $\frac{1}{s}$}
+
+\begin{itemize}
+\item{Backward Euler: $S = \frac{1 - z^{-1}}{T}$}
+\item{Forward Euler: $S = \frac{z - 1}{T}$}
+\item{BE: $\frac{1}{s} \rightarrow \frac{T}{1 - z^{-1}}$ (integrator)}
+\item{FE: $\frac{1}{s} \rightarrow \frac{T}{z - 1}$}
+\item{Let's digitize the integrator in a slick way... $\frac{1}{s} \rightarrow \frac{\omega_c}{s}$ }
+\item{BE: $\frac{1}{s} \rightarrow \frac{\omega_c}{s} \rightarrow \frac{\omega_c T}{1 - z^{-1}}$}
+\item{FE: $\frac{1}{s} \rightarrow \frac{\omega_c}{s} \rightarrow \frac{(\omega_c T)z^{-1}}{1 - z^{-1}}$} 
+\item{$\stackrel{\sim}{s} \stackrel{\Delta}{=} \frac{s}{\omega_c} \rightarrow \frac{1}{\stackrel{\sim}{s} = \frac{\omega_c}{s}}$}
+\item{back to digitizing... we are going to put this in FAUST
+}
+\end{itemize}
+
+
