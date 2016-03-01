@@ -1,0 +1,44 @@
+Class notes: 3-1-16
+\subsection*{State variable filter: Review}
+\begin{itemize}
+\item{What is the form of a SVF? It kind of looks like a DF-2 filter.}
+\item{What happens when you transpose an integrator chain? It becomes a differentiator chain. }
+\item{Numerically, you get better results with integrators because it rolls off the noise floors.
+Differentiators ramp up the noise floor.
+}
+\item{Digitization: We can't use the BLT because it's a delay free loop.}
+\item{Simple differentiator:
+    \begin{align*}
+    H(s) = s \rightarrow
+    \frac{z}{T} \frac{1 - z^{-1}}{1 + z^{-1}}
+    \end{align*}
+}
+\item{We looked at backward Euler: still problems}
+\item{We looked at forward Euler (half sample delay:
+    \begin{align*}
+        \frac{z - 1 }{T} \rightarrow \frac{1}{s} = \frac{T}{z - 1}
+    \end{align*}
+}
+\item{FEBE (foward/backward euler): multiply them together
+    \begin{align*}
+        \frac{z - 2 + z^{-1}}{T^2} 
+        \rightarrow 
+        \frac{1}{s^2} 
+        \rightarrow 
+        \frac{T^2 z^{-1}}{1 - 2z^{-1} + z^{-2}}
+    \end{align*}
+}
+\item{}
+\item{}
+\end{itemize}
+
+\subsection*{$S$ to $Z$ mappings}
+\begin{itemize}
+\item{
+\begin{align*}
+s &= \frac{1 - z^{-1}}{T}\\
+sT &= 1 - z^{-1} \rightarrow z^{-1} = 1 - sT\\
+z = \frac{1}{1 - sT}
+\end{align*}
+}
+\end{itemize}
