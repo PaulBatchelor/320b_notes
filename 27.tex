@@ -41,4 +41,75 @@ sT &= 1 - z^{-1} \rightarrow z^{-1} = 1 - sT\\
 z = \frac{1}{1 - sT}
 \end{align*}
 }
+\item{
+Backward Euler: We get artificial damping from backward euler
+}
+\item{
+FE: $s = \frac{z - 1}{T}$, therefore $z = 1 + sT \rightarrow 1 + j\omega T$
+} \item{
+DC is fine, but everywhere else, the $jw$ axis is outside the unit circle, 
+if your poles are lightly damped, they may be unstable after digitization.
+}
+\item{
+If you read up on finite difference schemes, you oftne hear about the stabliiity of the finite
+difference scheme... this is an example of what you are looking out for. 
+}
+\item{
+Backward/Forward case: $s^2 = \frac{z - 2 + z^{-1}}{T^2} $,
+$z = \frac{-b}{z} \pm \sqrt{b^2 - 4ac} / 2$
+}
+\item{
+Intuitively its going to be inbetween, BE is inside the unit cirlce, FE is outside the unit circle, 
+BFE is somewhere in the middle. (mama bear, papa bear, "just right"
+}
+\item{
+Sooner or later, the computer will round against you, and you will lose...
+}
+\end{itemize}
+
+\subsection*{Limit cycles}
+\begin{itemize}
+\item{
+$h(t) = e^{-\alpha t}
+$
+}
+\item{
+The level that your signal reaches due to rounding.
+}
+\item{
+Fix: magnitude truncation, but it sacrifices accuracy
+}
+\item{
+"Reverberation limit cycle synthesis"
+}
+\end{itemize}
+
+
+\subsection*{Digitizing Analogue State Variable filters}
+\begin{itemize}
+\item{
+Piles of poles at DC
+}
+\item{
+2nd order is arbitray, can have any pile of poles.
+}
+\item{
+Unrelated: Operational Transconductance Amplifier (OTA)
+}
+\item{
+FE: $\frac{1}{s} \rightarrow \frac{Tz^{-1}}{1 - Z^{-1}}$
+}
+\item{
+First is FE, second is BE, what are the others? We don't need to add any more delays. 
+We can use the BLT for the rest (this is paper-worthy)
+}
+\end{itemize}
+\subsection*{Faust digitizatoin}
+\begin{itemize}
+\item{
+    It's really easy to frequency scale each integrator.  (that's your knob)
+}
+\item{
+
+}
 \end{itemize}
