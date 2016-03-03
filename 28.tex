@@ -1,0 +1,45 @@
+\subsection*{Cepstrum}
+
+\begin{itemize}
+\item{Derived from \textit{Spectrum} with the first syllable flipped}
+\item{Quefrency is the same thing}
+\item{Complex Cepstrum: $
+\stackrel{\sim}{h}(n) \stackrel{\Delta}{=} \mbox{IDFT}_n [ln H(e^{j\omega T})]
+$}
+\item{
+$
+\stackrel{\sim}{h}(n) \stackrel{\Delta}{=} \mbox{IFT}_n [ln 
+\vert H(e^{j\omega T}) \vert ]
+$
+}
+\item{Assume $h$ is real of length N or infinity, which means that
+$h(n)$ is real (and possibly inifite)}, in addition to causal (negative times)
+\item{
+Cepstrum can make non-causal things and make causal in a very convenient way.
+}
+\item{
+We are going to convert non-minimum phase spectrum to minimum phase by taking
+the non-causal components and folding them aroudn
+}
+\item{
+$H(e^{j\omega T}$ is Hermitian. If you flip it, you get the conjugate of H.
+This also means that magnitude is even in $\omega$, and the phase
+of the spectrum is odd. 
+}
+\item{
+$ln \vert H \vert$ is even. 
+}
+\item{
+log of complex spectrum: 
+$ln H = ln \vert H \vert + j + \angle H
+$
+Where $H = \vert H \vert \cdot e^{j \angle H} $
+The real part is even, the imaginary part is odd. Look at your fourier theorems
+on that!
+}
+\item{
+$
+\stackrel{\sim}{h}(n) = \stackrel{\sim}{h}_r(n) + \stackrel{\sim}{h}_o(n) 
+$
+}
+\end{itemize}
