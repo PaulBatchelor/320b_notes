@@ -1,0 +1,33 @@
+\subsection*{Series Expansion of the Log Transfer Function in Factored Form}
+\begin{itemize}
+\item{
+to recap:
+\begin{align*}
+\ln{H(z)} = \ln{g} 
+\sum \limits_{m = 1}^{M} \ln {\frac{1}{1 - q_m z^{-1}}} +
+\sum \limits_{n = 1}^{N} \ln {\frac{1}{1 - p_n z^{-1}}} +
+\end{align*}
+}
+\item{
+This equation can be expaned using an expansion of $\frac{1}{1 - x}$, eg:
+\begin{align*}
+q_m z^{-1} + \frac{1}{2}(q_m z^{-1})^2 + \cdots
+\end{align*}
+}
+\item{
+\begin{align*}
+    \ln(\frac{1}{1 - q_m z^{-1}}) &= 
+\sum\limits_{m = 1}^{\infty}  \frac{1_n}{n} z^{-n} \leftrightarrow 
+\big[0, q_m, \frac{q_m^2}{2}, \cdots 
+\end{align*}
+    Where $\vert q_m \vert  < 1 $, aka the zeros are inside the unit circle.
+}
+\item{
+    One way to think about this: the output is a sampled exponential decay divided by a ramp.
+}
+\item{
+If it is outside the unit cirlce, it's a maximum phase zero (non minimum phase zero) 
+and you don't get this result. You get a blowing up exponential, or an non-causal or
+anti causal expansion..
+}
+\end{itemize}
