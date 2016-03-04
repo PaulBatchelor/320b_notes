@@ -1,0 +1,36 @@
+Video notes: vid19.mp4
+
+\subsection*{Series expansion of 1/(1 - x)}
+\begin{itemize}
+\item{to show and prove:
+\begin{align*}
+\ln (\frac{1}{1 - x}) = x + 
+\frac{x^2}{2} + \frac{x^{3}}{3} + \cdots \frac{x^{k}}{k} + \cdots
+\end{align*}
+}
+\item{
+\begin{align*}
+f(x) &= f(0) + f'(0)x + \frac{1}{2!}x^2 + \cdots \\
+f(0) &= \ln{ \frac{1}{1 - 0} } = ln{1} = 0 \\
+f'(x) &=  \frac{[(1 - x)^{-1}]'}{(1 - x)^{-1}} = 
+\frac{
+    (-1)(1 - x)^{-2}(-1)
+} {
+    (1 - x)^{-1}
+}
+= (1 - x)^{-1} \stackrel{\longrightarrow}{x \rightarrow 0} 1 \\
+f''(x) &= (-1)(1 - x)^{-2}(-1) = \frac{1}{(1 - x)^2} = 1 \\
+f'''(x) &= [(1 - x)^2]' = (-2)(1 - x)^{-3}(-1) = 2(1 - x)^3 = 2 \\
+f''''(x) &= 2 \cdot (1 - x)^{-3} = 2 \cdot(-3)(1 - x)^{-4}(-1)  \\
+f^(k)(x) &= (k - 1)!, k = 2, \cdots \\
+\end{align*} 
+}
+\item{
+Now, lets plug in for the taylor expansion:
+\begin{align*}
+\ln{\frac{1}{1 - x}} &= f(0) + \frac{f'(0)x}{1!} + f''(0)\frac{x^2}{2!} + \cdots
+&= 0 + 1 \cdot x + \frac{1 \cdot x^2}{2!} + \frac{(2!)x^3}{3!} + \cdots
+&= x + \frac{x^2}{2} + \frac{x^3}{3} + \cdots
+\end{align*}
+}
+\end{itemize}

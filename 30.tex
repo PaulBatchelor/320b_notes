@@ -1,0 +1,37 @@
+Video notes: vid18.mp4
+\subsection*{Complex Spectrum (application: conversion to min phase)}
+\begin{itemize}
+\item{
+A transfer function in factored form. Zeros over the poles:
+\begin{align*}
+H(z) = g\frac{
+    (1-q_1z^{-1}) \cdots
+    (1-q_mz^{-1})
+}{
+    (1-p_1z^{-1}) \cdots
+    (1-p_nz^{-1})
+}
+\end{align*}
+}
+\item{
+What happens when we take the log of this? 
+\begin{align*}
+\ln{H} & = \ln{g} + \ln{1 - q_1 z^{-1}} + \cdots \ln{1 - q_m z^{-1}} \\
+& - \ln{1 - p_1 z^{-1}} - \cdots - \ln{1 - p_n z^{-1}}\\
+& = \ln{g} + 
+\sum\limits_{i = 1}^{N} ( \frac{ 1 } { 1 - P_i z^{-1}})
+- \sum\limits_{k = 1}^{N} ( \frac{ 1 } { 1 - q_k z^{-1}})
+\end{align*}
+}
+\item{
+Next thing: take a Taylor series about zero (aka Maclaurin series).
+\begin{align*}
+\ln (\frac{1}{1 - x}) = x + 
+\frac{x^2}{2} + \frac{x^{3}{3}} + \cdots \frac{x^{k}}{k} + \cdots
+\end{align*}
+where $\vert x \vert < 1$
+}
+\item{ 
+Note that there are no factorials, so it makes it very easy to plug in. 
+}
+\end{itemize}
