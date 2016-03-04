@@ -1,0 +1,60 @@
+Video notes: vid17.mp4
+\subsection*{Mel Frequency Cepstral Coefficients (MFCC)}
+\begin{itemize}
+\item{These things are very nice features vectors for steady state spectra}
+\item{Typically real cepstrum is used: 
+\begin{align*}
+\stackrel{\sim}{h}(n) = ln \vert H \vert
+\end{align*}
+}
+\item{
+The log magnitude spectrum is very close to an auditory spectrum.
+}
+\item{
+Suppose we have a speech signal with formants and formant shaping. We
+find the spectral envelope to find the peak frequency of the resonants.
+}
+\item{
+at least 3 formants needed for a vowel. 
+}
+\item{
+This is a nice indicator of steady state spectrum. Spectral envelope on the 
+resolution that ignores pitch but captures formant frequency is a indicator
+of the timbre of the vowel. 
+}
+\item{
+How do you smooth a log magnitude spectrum to get the spectral envelope? 
+You filter it. If you do FFT filtering, what you'd do is take the FFT of the
+log magnitude and window that. And that's what the cepstrum does when you
+window the cepstrum.
+}
+\item{
+If you go to the cepstral domain (time domain but instead log magnitidue 
+was taken), you'll have cepstral coefficents which represent your spectral envelope
+initial sequence. Typical number is 12-13 coefficients.  
+}
+\item{
+You get what is called a pitch pulse due to the periodicity of the harmonics.
+}
+\item{
+You low pass filter or "lifter" the spectrum by windowing it before the pitch
+pulse. 
+}
+\item{
+\textit{Lifter} is a windowing of the cepstrum.
+}
+\item{
+Cepstral coefficients are linearly related to the spectral envelope on a
+dB magnitude scale.
+}
+\item{
+Mel frequency: frequency scale that is more auditory in nature. Taken hold 
+as the main oneTaken hold 
+}
+\item{
+Alternative scales: Bark, Equivalent Rectanglular Bandwidth (ERB)
+}
+\item{
+Can be thought of as quasi log scale for frequency. 
+}
+\end{itemize}
