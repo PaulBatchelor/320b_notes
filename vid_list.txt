@@ -1,0 +1,62 @@
+vid1.mp4:
+    https://www.youtube.com/watch?v=p19QzBxnhvg
+
+vid2.mp4
+    https://www.youtube.com/watch?v=KWhqV95fKRw
+
+vid3.mp4
+    https://www.youtube.com/watch?v=r0fg8eZAKGs
+
+vid4.mp4
+    https://www.youtube.com/watch?v=iJ7mnqhVBfk
+
+vid5.mp4
+    https://www.youtube.com/watch?v=qZUcTsHkHBQ
+
+vid6.mp4
+    https://www.youtube.com/watch?v=dEmmtsN-ka4
+
+vid7.mp4
+    https://www.youtube.com/watch?v=NqYGdcDW3dY
+
+vid8.mp4
+    https://www.youtube.com/watch?v=hze4CwetVNA
+
+vid9.mp4
+    https://www.youtube.com/watch?v=MOBH66RyXZw
+
+vid10.mp4
+    https://www.youtube.com/watch?v=doDMmZfEfbg
+
+vid11.mp4
+    https://www.youtube.com/watch?v=pUtUrzVHF3Q
+
+vid12.mp4
+    https://www.youtube.com/watch?v=UcTHnf4B5tU
+
+vid13.mp4
+    https://www.youtube.com/watch?v=V04yxnqBuYk
+
+vid14.mp4
+    https://www.youtube.com/watch?v=Cj6Vjp6k7NM
+
+vid15.mp4
+    https://www.youtube.com/watch?v=nCwj1VeXQ44
+
+vid16.mp4
+    https://www.youtube.com/watch?v=Tlk6CLclPPU
+
+vid17.mp4
+    https://www.youtube.com/watch?v=2O1BBFeQGOE
+
+vid18.mp4
+    https://www.youtube.com/watch?v=0H1z4OW-7UA
+
+vid19.mp4
+    https://www.youtube.com/watch?v=wrslb9U7HaI
+
+vid20.mp4
+    https://www.youtube.com/watch?v=x3gCA_rj13k
+
+vid21.mp4
+    https://www.youtube.com/watch?v=niY8EA4-peA
