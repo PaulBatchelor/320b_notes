@@ -1,23 +1,29 @@
 \documentclass{article}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[margin=0.5in]{geometry}
 
+\newcolumntype{L}{>{\centering\arraybackslash}m{2.3in}}
 \begin{document}
-
 \section*{Cheat sheet}
-\begin{tabular}{| c | c | c | }
+
+\begin{tabular}{| L | L | L |}
+%\begin{tabular}{c c c}
 \hline
 \input{c1.tex} & 
-\input{c2.tex} & 
+\input{c2.tex} &
 \input{c3.tex} \\
 \hline
-\input{c4.tex} & 
+\input{c4.tex} &
 \input{c5.tex} & 
 \input{c6.tex} \\
 \hline
 \input{c7.tex} & 
-\input{c8.tex} & 
+\input{c8.tex} &
 \input{c9.tex} \\
 \hline
-\input{c10.tex} & 
+\input{c10.tex} &
 \input{c11.tex} & 
 \input{c12.tex} \\
 \hline
