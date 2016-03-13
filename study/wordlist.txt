@@ -1,0 +1,73 @@
+# Problemset Wordlist 
+
+Scanning through the problemset questions, writing down keywords (to be 
+defined later)
+
+Duplicates okay.
+
+pset 1:
+
+FIR: Finite impulse response.
+IIR: infinite impulse response.
+impulse response: the response of the filter in the time domain
+frequency response: the response of the filter in the frequency domain
+amplitude response: the magnitude of the frequency response 
+phase response: how the filter changes the phase
+dc gain: what the filter returns at 0
+nyquist limit gain: what the filter returns at nyquest
+time delay: 
+Linearity: 
+Time invariance
+Direct Form 1: flow chart for diagraming filter (redundant delays)
+Direct Form 2: flow chart for diagram filter (shared delays)
+All-pole IIR
+Pole-zero IIR
+
+pset 2:
+
+transposed direct form 2
+poles: in a transfer function, they are the locations where the denominator is
+zero.
+zeros: in a transfer function, they are the locations where the numerator is 
+zero.
+partial fraction expansion: a way to "break out" a Nth order 
+closed form expression: an expression that can be evaluated in a finite number
+of operations
+magnitude frequency response: absolute value of frequency response.
+transfer function: expression of filter
+dc gain: gain at dc
+biquad allpass filter: biquad filter (2 poles, 2 zeros) with coefficients to
+make it an allpass filter.
+low shelf filter: 
+bilinear transform
+high shelf filter
+
+pset 3:
+
+analogue low shelf filter
+quality factor
+complex resonator
+digital complex resonator
+normalized second order bandpass resonator
+
+pset 4:
+
+group delay 
+phase delay
+symmetric filter chain
+Q: a unitless ratio: resonant frequency / bandwidth 
+bandwidth
+mininum phase: a filter is minimum phase if the zeros are within the unit
+circle
+minimum phase/allpass decomposition: a converting a mixed-phase filter into an
+allpass filter and a minimum phase filter
+Moog VCF: 4 pole lowpass filter
+
+pset 5:
+state space: 
+difference equation: 
+controller canonical form: 
+cepstrum: it is the inverse-fft of the log spectrum
+bandlimited impulse train: an impulse train that is band limited (won't
+alias)?
+eigenvalues/vectors
