@@ -3,8 +3,8 @@
 % ============================
 
 % NOTE: video watching not done yet
-
-\subsection*{Simplest Recursive Lowpass Filter}
+Video notes: 
+\subsection*{Simplest Recursive (Lowpass) Filter}
 
 $y_n = x(n) + Py(n-1)$
 
@@ -12,7 +12,7 @@ Where $0 < P < 1, \\
 n = 0, 1, 2, \dots
 y(-1) \stackrel{\Delta}{=} 0
 $\\\\
-Z transform:\\\\
+\textbf{Z transform:}\\\\
 $Y(z) = X(z) + Pz^{-1}Y(z)$
 
 $=> H(z) \stackrel{\Delta}{=} \frac{Y(Z)}{X(Z)}
@@ -20,109 +20,246 @@ $=> H(z) \stackrel{\Delta}{=} \frac{Y(Z)}{X(Z)}
 $
 \\
 
+If you keep P positive, it is a some kind of lowpass.
+
 \josquote{Ask about filters: what is their maximum gain?}
+
+Now, where does that thing have a Pole? When $Z = P$, it blows up, so that
+is where the pole is. The P is always going to be real, for our purposes.
+
 
 
 \subsection*{Max Gain}
-
+\begin{itemize}
+\item{
 Max gain is defined as:
-
 $\frac{1}{1 - R_{Max}}$
-
-Rmax = maximum Poles modulai  %max\{|Pi|\}
-
-Maximum gain is the one-pole, whose closest to thunit circle.
+}
+\item{Rmax = maximum Poles modulai}
+\item{Maximum gain is the one-pole, whose closest to the unit circle.}
+\item{
+Recall: PFE: $H(z)$ can be expressed as a sum:
+$H(z) = \sum\limits_{i = 1}^{N} \frac{r_i}{1 - P_i z^{-1}}$
+Assuming ($N>M$, and $P_i$ is distinct)
+}
+\item{
+If $M > N$, then you'll get some FIR filter and you'll end up doing long 
+division.
+}
+\end{itemize}
 
 
 \subsection*{Time Constant of One Pole}
-
-$e^{-t/\tau}$ =
+\begin{itemize}
+\item{Time constant is a measure of duration.}
+\item{
+$\tau$ is the time to decay to $1/e$. 
+}
+\item{
+T60 is approximately 6.97 time constants.
+}
+\item{Defined relative to the canonical form of the exponential: \\
+$e^{-t/\tau} \rightarrow $ 
 $e^{-nt/\tau}$  =
 $[e^{-t/\tau}]^n$ 
 
-$
-P = e^{-t/\tau}
-= 1- \frac{T}{\tau} %approx
-= \frac{1}{1 - P} %approx
-$\\\\
-
+}
+\item{
+$P^n$ is the sampled exponential, which you can expand into it's
+taylor/mclauren series. 
+\begin{align*}
+P &= e^{-T/\tau} \\
+&= 1- \frac{T}{\tau} + 
+(\frac{T}{\tau})^2 \frac{1}{2} + 
+(\frac{T}{\tau})^3 \frac{1}{3!} + \cdots \\
+&\approx 1 - \frac{T}{\tau}
+\end{align*}
+}
+\item{
+If you assume that tau is much greater than the sampling interval (pretty normal),
+then you can ignore the higher-order terms, which allows us to do the 
+approximation above.
+}
+\item{
+We can now solve for $\tau$, using our truncated taylor series approximated 
+above. $\tau/T$ is the time constant in samples. which is approximately 
+$\frac{1}{1 - P}$.
+}
+\item{
+We know by the graphical method that if you take any pole P and look at 
+the gain at the pole angle you get $\frac{1}{1 - \vert P \vert}$ because
+that is the distance of the pole to the unit circle. This is also the maximum
+gain. 
+}
+\item{
+If you think of an exponentially weighted moving average, it's basically
+saying that $\tau$ is the effective duration of it. 
+}
+\item{
+The integration of $e^{-t/\tau}$ is $\tau$.
+}
+\item{
 $
 \frac{1}{1 - |P|}
 $ 
 = for any pole $p$ in C is approx equal to time constant in sample.
-which is equal to the peak gain.
+which is also equal to the peak gain of the pole.
+}
+\item{
+Impulse response of Pole: $H(z) = \frac{1}{1 - pz^{-1}}$
+What is the inverse z transform of this? we can kind of guess.
 
+$h = [1, p, p^2, p^3, \cdots]$
 
-also,
-$
-\frac{1}{1 - |P|} =
-$ 
-Peak gain.
+It's a sampled exponential where the samples are just powers of the pole,
+so $p^n$ is the impulse response: $h(n) = p^n$. True for any pole, but we use
+it primarily for real poles.
 
-$
-H(z) = \frac{1}{1 - PZ^{-1}} =
-$ 
+This exponential decay is our impulse response, it's our exponentially 
+weighted moving average impulse response.
+}
+\item{
+$\frac{1}{1 - \vert p \vert}$ what you get when you add the impulse response 
+up. It's the effective duration of that thing and it's the effective sum of the
+thing.
+}
+\end{itemize}
 
-$h = [1, p, p^2, p^3, \dots]$\\
-$h(n) = p^n$
 
 \subsection*{Stability}
+\begin{itemize}
+\item{We are always going to want our filters to be stable.}
 
-$h(n) -> 0$
+\item{PFE: $H(z) = \sum\frac{r_i}{1 - pz^{-1}}$ sum of one-poles. 
+
+$h(n) = \sum\limits_{i = 1}{N} r_i p_i^n$
+}
+\item{
+$h_i = [1, p_i, p_i^2, \dots] * r_i$
+This must decay, so p needs to be less than 1.
+}
+\item{
+A filter is stable if and only if (iff) $\vert p_i\vert  < 1$ for all i. 
+}
+\item{
+Poles must be strictly inside the unit circle. 
+}
+\item{
+We use a lot of marginally stable filters to make oscillators. Many of these
+are implemented in Faust. 
+}
+% $h(n) \rightarrow 0$
 
 %$P f E: H(z) = \sum
 
 \josquote{A fliter is stable if |Pi| <1 upsidedownAi = 1, \dots, N}
+\end{itemize}
 
 
+\subsection*{Pole Bandwidth (BW)}
+\begin{itemize}
+\item{What is bandwidth? Passband is generally defined as the integeral
+between the -3db to the left and right of 0db point, that is what we call
+bandwidth.}
+\item{
+-6db is dividing by 2. -3db is dividing $\sqrt{2}$, the "half power point".
+}
+\item{
+What do we do to estimate it from a pole? We know that when we fly by a pole
+on the unit circle we get this nice localized gain. We just have to estimate
+the -3db points, and that will give us the bandwidth.
+}
+\item{
+Formula
+\begin{align*}
+\vert P \vert \approx e^{-\pi B T}
+\end{align*}
+Where $B$ is bandwidth (in Hz). 
+}
+\item{
+The derivation of this equation that you want a resonably narrow bandpass. 
+Reasonably resonant. 
+}
+\item{
+Equivalent:
+\begin{align*}
+B = - \frac{\ln \vert P \vert}{\pi T}
+\end{align*}
+}
+\item{
+Normally, this is were it would be proved. But things are much simpler
+in continuous time, so we will analyze the s-plane case 
+$H(s) = \frac{-\sigma_p}{s - p}$. 
+}
+\end{itemize}
+%Bandwidth (BW) \\
+%
+%Bandwidth is defined is -3db points to the left and right of 0db point. 
+%Distance from left and right points is the bandwidth.
+%
+%Bandwidth is in Hz. 
+%
+%-6db is a power of 2, (dividing by 2), -3db is dividing by $\sqrt{2}$
+%
+%What do we do to estimate it from the pole?
+%\\
+%Estimate the -3db points. 
+%
+%$|P| = e^{-\pi B T}$
+%where $B$ = bandwidth in Hz.
+%
+%The derivation assumes that you want a narrow bandpass.
+%
+%ANother way:
+%
+%$B = \frac{-ln(|p|)}{\pi T}$
+%
+%
+%\subsection*{S-plane poles and zeros}
+%$h(t) = e^{-t/\tau}$
 
-\subsection*{Pole BW}
-
-Bandwidth (BW) \\
-
-Bandwidth is defined is -3db points to the left and right of 0db point. 
-Distance from left and right points is the bandwidth.
-
-Bandwidth is in Hz. 
-
--6db is a power of 2, (dividing by 2), -3db is dividing by $\sqrt{2}$
-
-What do we do to estimate it from the pole?
-\\
-Estimate the -3db points. 
-
-$|P| = e^{-\pi B T}$
-where $B$ = bandwidth in Hz.
-
-The derivation assumes that you want a narrow bandpass.
-
-ANother way:
-
-$B = \frac{-ln(|p|)}{\pi T}$
-
+% The generalized transform of this is the laplace transform.
 
 \subsection*{S-plane poles and zeros}
-$h(t) = e^{-t/\tau}$
+\begin{itemize}
+\item{Consier the basic exponential $h(t) = e^{-t/\tau}$}
+\item{
+\begin{align*}
+e^{pt} \leftrightarrow \frac{1}{s - p}
+\end{align*}
+}
+\end{itemize}
 
-The generalized transform of this is the laplace transform.
+% also,
+% $
+% \frac{1}{1 - |P|} =
+% $ 
+% Peak gain.
+% 
+% $
+% H(z) = \frac{1}{1 - PZ^{-1}} =
+% $ 
+% 
+% $h = [1, p, p^2, p^3, \dots]$\\
+% $h(n) = p^n$
 
 \subsection*{Laplace transform}
-Go back to this: (approx 30min. vid4)\\
-Look this up:\\
-H(s) = L h etc... etc...
-
-$\int_0^{\infty} e^{-t/\tau}e^{-st}dt$
-$= \int_0^{\infty} e^{-t/\tau}e^{-st}dt$ \\\\
-
-$e^{pt} \leftrightarrow \frac{1}{s - p}$
-\\
-more commonly written as: \\
-$e^{\alpha t} \leftrightarrow \frac{1}{s - \alpha}$\\
-\josquote{this is how you get poles in the s-plane}
-
-Let $\alpha = \sigma_0 + j\omega_0$
-
-I stopped here (towards the end of video... get back to this)
+% Go back to this: (approx 30min. vid4)\\
+% Look this up:\\
+% H(s) = L h etc... etc...
+% 
+% $\int_0^{\infty} e^{-t/\tau}e^{-st}dt$
+% $= \int_0^{\infty} e^{-t/\tau}e^{-st}dt$ \\\\
+% 
+% $e^{pt} \leftrightarrow \frac{1}{s - p}$
+% \\
+% more commonly written as: \\
+% $e^{\alpha t} \leftrightarrow \frac{1}{s - \alpha}$\\
+% \josquote{this is how you get poles in the s-plane}
+% 
+% Let $\alpha = \sigma_0 + j\omega_0$
+% 
+% I stopped here (towards the end of video... get back to this)
 
 
 
